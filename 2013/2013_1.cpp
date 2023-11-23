@@ -43,7 +43,7 @@ public:
         return SoPhuc(-real,-imag);
     }
     SoPhuc operator*(const SoPhuc& num) const{
-        int newReal = real * num.real + 7 * imag * num.imag;
+        int newReal = real * num.real + 7 * imag * num.imag; // (a+b√7) * (c+d√7) = (a*c + 7*b*d) + (a*d + b*c)* √7
         int newImag = real * num.imag + imag * num.real;
         return SoPhuc(newReal,newImag);
     }
