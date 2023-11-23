@@ -1,6 +1,7 @@
 #include<iostream>
 #include<math.h>
 using namespace std;
+
 class Function{
 public:
     virtual double Value(double x)=0;
@@ -46,7 +47,7 @@ double DeriveSum(Function *f,Function *g,double x)
     }
     return 0;
 }
-double DaoHamThuong(Function *f,Function *g, double x)
+double DeriveDevide(Function *f,Function *g, double x)
 {
     if (g!=NULL)
     {
@@ -54,7 +55,7 @@ double DaoHamThuong(Function *f,Function *g, double x)
     }
     return 0; // f/g =f'*g-g'*f/g^2
 }
-double DaoHamCuaHamHop(Function *f,Function *g,double x)
+double DeriveComposite(Function *f,Function *g,double x)
 {
     if(f!= NULL&& g!=NULL)
     {
@@ -69,7 +70,7 @@ int main()
     double x=3.14/6;
     Sin *s=new Sin();
     double y=DeriveProduct(s,s,x);
-    cout << "sin("<< "3.14/6"<< ")"<<s->Value(x)<< "sin'(3.14/6)"<<s->Derive(x)<< endl;
+    cout << "sin(3.14/6)= "<<s->Value(x)<< " \nsin'(3.14/6)= "<<s->Derive(x)<< endl;
     cout << "y= "<< y << endl;
     return 0;
 }

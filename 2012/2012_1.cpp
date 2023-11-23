@@ -1,4 +1,5 @@
 #include<iostream>
+using namespace std;
 class PhanSo {
 private:
     int tu, mau;
@@ -30,13 +31,13 @@ public:
         return *this;
     }
 
-    PhanSo operator+(const int& iNum) {
-        PhanSo newPhanSo(this->tu + iNum * this->mau, this->mau);
+    PhanSo operator+(const int& num) {
+        PhanSo newPhanSo(this->tu + num * this->mau, this->mau);
         return newPhanSo;
     }
 
     PhanSo operator++() {
-        this->tu += this->mau;
+        tu += mau;
         return *this;
     }
 
@@ -44,9 +45,9 @@ public:
         return this->tu / this->mau;
     }
 
-    friend ostream& operator<<(ostream& os, const PhanSo& ps) {
-        os << ps.tu << "/" << ps.mau;
-        return os;
+    friend ostream& operator<<(ostream& out, const PhanSo& ps) {
+        out << ps.tu << "/" << ps.mau;
+        return out;
     }
 
     ~PhanSo() {
@@ -60,7 +61,7 @@ int main ()
     PhanSo a(1,3),c;
     int b=8;
     c=a+b;
-    cout << "c= "<< a<< "+ "<< b << "= "<< c << endl;
+    cout << "c= "<< a<< "+ "<< b << " = "<< c << endl;
     cout <<"++c: ";
     cout << "c= "<< ++c << endl;
     cout << "a= "<< a << " + "<< c << endl;

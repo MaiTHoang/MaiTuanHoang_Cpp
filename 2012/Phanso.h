@@ -17,7 +17,7 @@ public:
         this->tu = tu;
         this->mau = mau;
         if (this->mau == 0) {
-            cout << "Mau khong duoc bang 0\n";
+            cout << "Mau phai khac 0\n";
             this->tu = 0;
             this->mau = 0;
         }
@@ -34,8 +34,8 @@ public:
         return *this;
     }
 
-    PhanSo operator+(const int& iNum) {
-        PhanSo newPhanSo(this->tu + iNum * this->mau, this->mau);
+    PhanSo operator+(const int& num) {
+        PhanSo newPhanSo(this->tu + num * this->mau, this->mau);
         return newPhanSo;
     }
 
@@ -44,13 +44,13 @@ public:
         return *this;
     }
 
-    operator int() {
-        return this->tu / this->mau;
+    operator int(){
+        return this->tu/this->mau;
     }
-
-    friend ostream& operator<<(ostream& os, const PhanSo& ps) {
-        os << ps.tu << "/" << ps.mau;
-        return os;
+    
+    friend ostream& operator<<(ostream& out, const PhanSo& ps) {
+        out << ps.tu << "/" << ps.mau;
+        return out;
     }
 
     ~PhanSo() {

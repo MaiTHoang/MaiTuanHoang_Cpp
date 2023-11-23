@@ -1,81 +1,77 @@
 #include<iostream>
 using namespace std;
 
-class I {
+class SoPhuc
+{
 private:
-    int a;
-    int b;
-    int x = 7;
-
+    int real; // Phan thuc
+    int imag; // Phan ao
 public:
-    I(const int& _a, const int& _b) : a(_a), b(_b) {}
-
-    I operator +(const I& c) {
-        I result(a + c.a, b + c.b);
-        return result;
+    SoPhuc(int rl=0,int img=0):real(rl),imag(img){}
+    
+    int getReal() const{
+        return real;
+    }
+    int getImag() const{
+        return imag;
     }
 
-    I operator -(const I& c) {
-        I result(a - c.a, b - c.b);
-        return result;
+    void nhap(){
+        cout << "nhap phan thuc: ";
+        cin >> real;
+        cout << "nhap phan ao: ";
+        cin >> imag;
+    }
+    void xuat(){
+        cout << real;
+        if(imag>0){
+            cout << " + " << imag <<"sqrt(7)";
+        }
+        else{
+            cout << " + " << -imag <<"sqrt(7)";
+        }
+        cout << endl;
     }
 
-    I operator -() {
-        I result(-a, -b);
-        return result;
+    SoPhuc operator+(const SoPhuc& num) const{
+        return SoPhuc(real + num.real,imag + num.imag);
     }
-
-    I operator *(const I& c) {
-        I result(a * c.a + 7 * b * c.b, a * c.b + b * c.a);
-        return result;
+    SoPhuc operator-(const SoPhuc& num) const{
+        return SoPhuc(real - num.real,imag - num.imag);
+    } 
+    SoPhuc operator-() const{
+        return SoPhuc(-real,-imag);
     }
-
-    friend istream& operator >> (istream& is, I& obj) {
-        is >> obj.a >> obj.b;
-        return is;
-    }
-
-    friend ostream& operator << (ostream& os, I& obj) {
-        if (obj.b>0&& obj.a>0)
-       { 
-            os << obj.a << " + " << obj.b << "sqrt(" << obj.x<< ")";
-            return os;
-       }
-       if(obj.b<0)
-       {
-            os << obj.a << " "<< obj.b << "sqrt("<< obj.x<< ")";
-            return os;
-       }
-       if(obj.a==0)
-       {
-            os << obj.b << "sqrt("<< obj.x << ")";
-            return os;
-       }
-       if(obj.b==0)
-       {
-            os << obj.a;
-            return os;
-       }
-       return os;
+    SoPhuc operator*(const SoPhuc& num) const{
+        int newReal = real * num.real + 7 * imag * num.imag;
+        int newImag = real * num.imag + imag * num.real;
+        return SoPhuc(newReal,newImag);
     }
 };
 
-int main() {
-    I complex1(3, 2);
-    I complex2(1, -5);
+int main()
+{
+    SoPhuc num1,num2,ketqua;
+    cout << "Nhap so thu nhat:\n";
+    num1.nhap();
+    cout << "Nhap so thu hai:\n";
+    num2.nhap();
 
-    cout << "Complex 1: " << complex1 << endl;
-    cout << "Complex 2: " << complex2 << endl;
+    ketqua = num1 + num2;
+    cout << "Tong= ";
+    ketqua.xuat();
 
-    I sum = complex1 + complex2;
-    I difference = complex1 - complex2;
-    I negation = -complex1;
-    I product = complex1 * complex2;
+    ketqua = num1 - num2;
+    cout << "Hieu= ";
+    ketqua.xuat();
 
-    cout << "Sum: " << sum << endl;
-    cout << "Difference: " << difference << endl;
-    cout << "Negation: " << negation << endl;
-    cout << "Product: " << product << endl; 
+    ketqua = -num1;
+    cout << "Phep doi dau so thu nhat= ";
+    ketqua.xuat();
 
+    ketqua = num1 * num2;
+    cout << "Tich= ";
+    ketqua.xuat();
+    
     return 0;
 }
