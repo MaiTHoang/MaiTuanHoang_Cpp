@@ -9,7 +9,7 @@ class Shape
 {
 public:
     Shape(){
-        cerr << "construct Shape" << endl;
+        cerr << "Construct Shape" << endl;
     }
     virtual string Description(){
         stringstream ss;
