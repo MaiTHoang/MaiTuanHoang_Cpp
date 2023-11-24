@@ -98,7 +98,7 @@ public:
     }
 };
 
-long DataFree::NGUONG_MIEN_PHI = 100;
+long DataFree::NGUONG_MIEN_PHI = 1000;
 long DataFree::CUOC_THUE_BAO = 50;
 
 class DataFix
