@@ -21,7 +21,7 @@ public:
     }
     double getTime()
     {
-        return this ->Time;
+        return Time;
     }
     
     static long long DON_GIA_THUE_MayLyTam;
@@ -60,7 +60,7 @@ public:
     }
     double getTime()
     {
-        return this ->Time;
+        return Time;
     }
  
     float CongSuatThucTe() {

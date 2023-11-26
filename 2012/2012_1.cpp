@@ -6,8 +6,8 @@ private:
 
 public:
     PhanSo() {
-        this->tu = 0;
-        this->mau = 1;
+        tu = 0;
+        mau = 1;
     }
 
     PhanSo(const int& tu, const int& mau) {
@@ -21,18 +21,18 @@ public:
     }
 
     PhanSo operator+(const PhanSo& ps) {
-        PhanSo newPhanSo(this->tu * ps.mau + this->mau * ps.tu, this->mau * ps.mau);
+        PhanSo newPhanSo(tu * ps.mau + mau * ps.tu, mau * ps.mau);
         return newPhanSo;
     }
 
     PhanSo operator+=(const PhanSo& ps) {
-        this->tu = this->tu * ps.mau + this->mau * ps.tu;
-        this->mau *= ps.mau;
+       tu =tu * ps.mau +mau * ps.tu;
+       mau *= ps.mau;
         return *this;
     }
 
     PhanSo operator+(const int& num) {
-        PhanSo newPhanSo(this->tu + num * this->mau, this->mau);
+        PhanSo newPhanSo(this->tu + num *mau,mau);
         return newPhanSo;
     }
 
@@ -42,7 +42,7 @@ public:
     }
 
     operator int() {
-        return this->tu / this->mau;
+        return tu / mau;
     }
 
     friend ostream& operator<<(ostream& out, const PhanSo& ps) {
@@ -51,8 +51,8 @@ public:
     }
 
     ~PhanSo() {
-        this->tu = 0;
-        this->mau = 1;
+        tu = 0;
+        mau = 1;
     }
 };
 using namespace std;

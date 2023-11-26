@@ -9,7 +9,7 @@ public:
         m_tgian = t;
     };
     double getThoiGian(){
-        return this->m_tgian;
+        return m_tgian;
     };
 };
 
@@ -22,18 +22,18 @@ public:
         double thoiGian = 0;
         cout << "Nhap thoi gian hoat dong: ";
         cin >> thoiGian;
-        this->setTgian(thoiGian);
+        setTgian(thoiGian);
         cout << "Nhap Luong hoa chat: ";
-        cin >> this->luongHoaChat;
+        cin >> luongHoaChat;
         cout << "Nhap cong suat loc cua may: ";
-        cin >> this->CongSuatLoc;
+        cin >> CongSuatLoc;
     }
 
     float CongSuatThucTe() {
-        if (this->getThoiGian() >= 10) {
-            return this->CongSuatLoc * (this->luongHoaChat / 100) / (this->getThoiGian() / 10);
+        if (getThoiGian() >= 10) {
+            return CongSuatLoc * (luongHoaChat / 100) / (getThoiGian() / 10);
         } else {
-            return this->CongSuatLoc * (this->luongHoaChat / 100);
+            return CongSuatLoc * (luongHoaChat / 100);
         }
     }
 
@@ -41,15 +41,15 @@ public:
     static long long DON_GIA_THUE;
 
     long tinhChiPhiThueMoiMay() {
-        return DON_GIA_THUE * this->getThoiGian();
+        return DON_GIA_THUE * getThoiGian();
     }
 
     long tinhChiPhi() {
-        return tinhChiPhiThueMoiMay() + this->luongHoaChat * DON_GIA_HOA_CHAT;
+        return tinhChiPhiThueMoiMay() + luongHoaChat * DON_GIA_HOA_CHAT;
     }
 
     double tinhLuongNuoc() {
-        return this->getThoiGian() * this->CongSuatThucTe();
+        return getThoiGian() * CongSuatThucTe();
     }
 };
 
