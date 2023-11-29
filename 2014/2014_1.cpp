@@ -6,7 +6,7 @@ class Bike{
 private:
     char* brand;
 public:
-    Bike(){
+    Bike(){ // Tạo constructor Bike
         string s = "Bike";
         brand = new char[5];
         for(int i=0;i<5;i++){
@@ -15,7 +15,7 @@ public:
         brand[5] = '\0';
     }
 
-    Bike(string s){
+    Bike(string s){ // Tạo constructor Bike ảo
         brand = new char[s.length()+1];
         for(int i=0;i<s.length();i++){
             brand[i] = s[i];
@@ -27,7 +27,7 @@ public:
         cout << brand <<": " << t1*12 << " ";
     }
     
-    virtual ~Bike(){
+    virtual ~Bike(){ // Hủy Bike để giải phóng dữ liệu
         if(brand){
             delete[] brand;
         }

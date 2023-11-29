@@ -12,7 +12,7 @@ public:
     long cuocGoi(){
         cout << "Nhap thoi gian goi: ";
         cin >> time;
-        return CALL_FEE * time;
+        return CALL_FEE * time; // Cước điện thoại = thời gian gọi * đơn giá (1000/phút)
     }
 };
 long CuocDt::CALL_FEE = 1000;
@@ -27,7 +27,7 @@ public:
     long internetUse(){
         cout << "Nhap luu luong truy cap: ";
         cin >> luuLuongTruyCap;
-        return INTERNET_PRICE * luuLuongTruyCap;
+        return INTERNET_PRICE * luuLuongTruyCap; // Cước internet = lưu lượng truy cập (MB) * đơn giá truy cập (200 đồng/MB)
     }
     void datLuongTruyCap(long _luuLuongTruyCap){
         luuLuongTruyCap = _luuLuongTruyCap;
@@ -68,7 +68,7 @@ private:
 public:
     long cuocGoi(){
         return phoneFee.cuocGoi() +  internetFee.internetUse() + static_cast<long>(0.1*CuocDt::CALL_FEE);
-    }
+    } // Cước tổng = cước điện thoại + cước internet + 10% VAT
 };
 
 class DataFree
@@ -110,7 +110,7 @@ public:
 
     long cuocGoi(){
         return static_cast<long>(0.9*(_PhoneFee.cuocGoi())) + MUC_CO_DINH;
-    }
+    } // Data fix = mức cố định + 10% gói basic
 };
 long DataFix::MUC_CO_DINH = 1000000;
 
@@ -155,7 +155,7 @@ public:
 
 class Manage
 {
-    vector<Contract> _ds;
+    vector<Contract> _ds; // dùng vector để tạo danh sách hợp đồng
 public:
     void dangKy(){
         int soLuong;

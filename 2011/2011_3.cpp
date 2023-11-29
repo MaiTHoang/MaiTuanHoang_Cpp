@@ -105,18 +105,18 @@ int main() {
     {
         MayXucTac a;
         a.nhap();
-        chiphixuctac+=a.tinhChiPhi();
-        luong_nuoc_xuc_tac=luong_nuoc_xuc_tac+a.tinhLuongNuoc();
+        chiphixuctac += a.tinhChiPhi();
+        luong_nuoc_xuc_tac += a.tinhLuongNuoc();
     }
     for (int index = 1; index <=SoMayXucTac; index++)
     {
         MayLyTam b;
         b. nhap();
-        chiphilytam=chiphilytam+b.tinhChiPhi();
-        luong_nuoc_ly_tam=luong_nuoc_ly_tam+b.tinhLuongNuoc();
+        chiphilytam += b.tinhChiPhi();
+        luong_nuoc_ly_tam += b.tinhLuongNuoc();
     }
-    long long tongchiphi=chiphilytam+chiphixuctac;
-    long long tongluongnuoc=luong_nuoc_ly_tam+luong_nuoc_xuc_tac;
+    long long tongchiphi= chiphilytam + chiphixuctac;
+    long long tongluongnuoc= luong_nuoc_ly_tam + luong_nuoc_xuc_tac;
     if (tongluongnuoc>=nuoc)
     {
         cout << " Ao duoc loc het "<< endl;

@@ -34,13 +34,13 @@ public:
     }
 
     SoPhuc operator+(const SoPhuc& num) const{
-        return SoPhuc(real + num.real,imag + num.imag);
+        return SoPhuc(real + num.real,imag + num.imag); // (a+b√7) + (c+d√7) = (a+c) + (b+d)√7
     }
     SoPhuc operator-(const SoPhuc& num) const{
-        return SoPhuc(real - num.real,imag - num.imag);
+        return SoPhuc(real - num.real,imag - num.imag); // (a+b√7) - (c+d√7) = (a-c) + (b-d)√7 
     } 
     SoPhuc operator-() const{
-        return SoPhuc(-real,-imag);
+        return SoPhuc(-real,-imag); // a+b√7 = -a-b√7
     }
     SoPhuc operator*(const SoPhuc& num) const{
         int newReal = real * num.real + 7 * imag * num.imag; // (a+b√7) * (c+d√7) = (a*c + 7*b*d) + (a*d + b*c)* √7

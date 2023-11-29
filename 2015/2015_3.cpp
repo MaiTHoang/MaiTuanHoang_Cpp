@@ -13,8 +13,8 @@ public:
     static long DON_GIA_THUE;
 
     virtual long tinhTienthue() {
-        return DON_GIA_THUE * dientich;
-    }
+        return DON_GIA_THUE * dientich; 
+    } 
 
     virtual long tinhThueDoanhthu() = 0;
 
@@ -29,7 +29,7 @@ public:
         cin >> doanhthu;
     }
 
-    virtual ~Sap() {
+    virtual ~Sap() { // Dùng hàm hủy ảo để giải phóng dữ liệu 1 cách an toàn
         stt = 0;
         dientich = 0;
         doanhthu = 0;
@@ -150,7 +150,7 @@ public:
         return sum;
     }
 
-    ~QuanLyDanhSach() {
+    ~QuanLyDanhSach() { // dùng hàm hủy để giải phóng dữ liệu 
         for (Sap* p : ds) {
             delete p;
         }
